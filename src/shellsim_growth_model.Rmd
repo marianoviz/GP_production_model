@@ -1,0 +1,44 @@
+---
+title: "ShellSIM growth model"
+author: "Mariano Viz"
+date: "23/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+```
+
+
+
+
+```{r}
+#Net energy balance function for C. gigas (intitally only considering CHL - i.e., without taking into account POM and POC and, therefore, REMORG, EREM, and NIRREMORG)
+
+net_energy_balance <- function(CHL, NIRREMORG = 0, EREM = 0, TEMP, WE = 1, WS = 1, MNEA = 1350) {
+  
+  selorg = (CHL*50)/0.38
+  nirselorg = (-0.33+(4.11*selorg)) #check table 2 --> TEF and (WE/WS)^0.62
+  nea = (((nirselorg*23.5)+(NIRREMORG*0.15*EREM))*0.8*24)
+  cr = 0.32+(0.323*TEMP)+(-.011*(TEMP)^2)
+  tef = cr/(0.32+(0.323*15)+(-.011*(15)^2)) #check table 2 and check TEM (p.242)!!
+  mhl = 4.005*tef*((WE/WS)^0.72) #we/ws???
+  thl = mhl + (0.23*nea)
+  ON = 10 + (((200-10)/MNEA)*nea)
+  el = (((thl/14.06)/16)/ON)*14*1000*24
+  neb = nea-thl-(el*0.02428)
+  
+  
+  return(neb)
+}
+
+net_energy_balance(CHL =0.2, TEMP = 12)
+net_energy_balance(CHL =0, TEMP = 12)
+
+
+#I'll try to incorporate the other equatins and the dynamics. Once is working I'll copy it in an RScrip, annotate and put it into a subdirectory called R (as if we were going to create a package - thing that we can easily do if it works).
+
+```
+
