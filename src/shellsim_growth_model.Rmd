@@ -42,3 +42,68 @@ net_energy_balance(CHL =0, TEMP = 12)
 
 ```
 
+
+
+
+
+
+
+
+```{r}
+# Value of information example:
+
+
+profits = function(E,X, a=1, b=0.1)
+{
+  profits = a*E*X - b*(X^2)/E
+  return(profits)
+}
+
+# a = 1
+# b = .1
+# Elo = 1
+# Ehi = 2
+
+
+# X is the choice (like stocking density)
+# E is the environmental variable (like temperature) -- use values around 1 or 2
+# Try to find the value of information for this example!
+
+
+
+E_norm <- rnorm(mean = 1.5, sd = 0.3, n = 100)
+X_lo <- seq(0, 10, length.out=100)
+X_hi <- seq(0, 40, length.out=100)
+X_norm<- seq(0, 22.5, length.out=100)
+
+profits_lo_df <- data.frame(E_lo = 1, X_lo = X_lo, profits = NA)
+profits_hi_df <- data.frame(E_hi = 2, X_hi = X_hi, profits = NA)
+profits_norm_df <- data.frame(E_norm = E_norm, X_norm = X_norm, profits = NA)
+
+profits_lo_df$profits <- profits(profits_lo_df$E_lo, profits_lo_df$X_lo)
+profits_hi_df$profits <- profits(profits_hi_df$E_hi, profits_hi_df$X_hi)
+profits_norm_df$profits <- profits(profits_norm_df$E_norm, profits_norm_df$X_norm)
+
+
+ggplot()+
+  geom_line(data = profits_lo_df, aes(x= X_lo, y=profits))+
+  geom_line(data = profits_hi_df, aes(x= X_hi, y=profits))+
+  geom_line(data = profits_norm_df, aes(x= X_norm, y=profits))
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
