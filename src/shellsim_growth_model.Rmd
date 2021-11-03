@@ -52,7 +52,6 @@ net_energy_balance(CHL =0, TEMP = 12)
 ```{r}
 # Value of information example:
 
-
 profits = function(E,X, a=1, b=0.1)
 {
   profits = a*E*X - b*(X^2)/E
@@ -87,7 +86,39 @@ profits_norm_df$profits <- profits(profits_norm_df$E_norm, profits_norm_df$X_nor
 ggplot()+
   geom_line(data = profits_lo_df, aes(x= X_lo, y=profits))+
   geom_line(data = profits_hi_df, aes(x= X_hi, y=profits))+
-  geom_line(data = profits_norm_df, aes(x= X_norm, y=profits))
+  theme_minimal() +
+  labs(x = "Choice (X)",
+       y = "Profits")
+
+
+## Profits of optimal info:
+# Optimal X_lo = 5: TT=2.5
+optimal_lo <- profits(E=1, X=5)
+#Optimal X_hi = 20: TT=20
+optimal_hi <- profits(E=2, X=20)
+
+#Average X E_lo:
+not_optimal_lo <- profits(E=1, X=12.5)
+#Average X E_hi:
+not_optimal_hi <- profits(E=2, X=12.5)
+
+
+# prob E_lo = 0.5
+p_lo <- 0.5
+# prob E_hi = 0.5
+p_hi <- 0.5
+
+
+#Profits optimal: 
+profits_optimal <- p_lo*optimal_lo + p_hi*optimal_hi
+
+#Profits NOT optimal: 
+profits_not_optimal <- p_lo*not_optimal_lo + p_hi*not_optimal_hi
+
+# Value of information:
+value_info <- profits_optimal - profits_not_optimal
+
+value_info
 
 ```
 
