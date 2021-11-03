@@ -34,9 +34,10 @@ net_energy_balance <- function(CHL, NIRREMORG = 0, EREM = 0, TEMP, WE = 1, WS = 
   return(neb)
 }
 
-net_energy_balance(CHL =0.2, TEMP = 12)
+net_energy_balance(CHL =0.002, TEMP = 12)
 net_energy_balance(CHL =0, TEMP = 12)
 
+#CHL in mg/l!
 
 #I'll try to incorporate the other equatins and the dynamics. Once is working I'll copy it in an RScrip, annotate and put it into a subdirectory called R (as if we were going to create a package - thing that we can easily do if it works).
 
@@ -44,7 +45,38 @@ net_energy_balance(CHL =0, TEMP = 12)
 
 
 
+```{r}
+#Shell length equation:
 
+net_energy_balance(CHL =0.004, TEMP = 12)
+
+shell_length <- function(initial_length, neb, days, MTA = 0.76, ECS = 0.161, a = 2.767, b = 0.827) {
+  time = days/365
+  initial_DSW = (initial_length/a)^(1/b)
+  SG = (1-MTA)*neb
+  total_shell_energy = SG*time
+  DSW = initial_DSW + (SG/(ECS*1000)*time)
+  SL = a*DSW^b
+  return(SL)
+}
+
+
+
+shell_length(1, 577.3028, 100)
+
+
+days<- seq(1, 730, length.out=730)
+
+shell_df <- data.frame(initial_length = 1, neb = 577.3028, days = days, shell_length = NA)
+
+shell_df$shell_length <- shell_length(shell_df$initial_length, shell_df$neb, shell_df$days)
+
+ggplot(data = shell_df, aes(x= days, y = shell_length))+
+  geom_line()
+
+# Need to add the restriction variable: Effects of Shellfish Size!
+
+```
 
 
 
