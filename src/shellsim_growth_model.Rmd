@@ -84,7 +84,6 @@ profits_lo_df$profits <- profits(profits_lo_df$E_lo, profits_lo_df$X_lo)
 profits_hi_df$profits <- profits(profits_hi_df$E_hi, profits_hi_df$X_hi)
 profits_norm_df$profits <- profits(profits_norm_df$E_norm, profits_norm_df$X_norm)
 
-
 ggplot()+
   geom_line(data = profits_lo_df, aes(x= X_lo, y=profits))+
   geom_line(data = profits_hi_df, aes(x= X_hi, y=profits))+
@@ -92,6 +91,26 @@ ggplot()+
 
 ```
 
+## Calcualting the value of information
+
+```{r}
+
+#maximum profit if temperature was correct
+max_profit <- max(profits_hi_df$profits) + max(profits_lo_df$profits)
+
+#farmer guesses env. variable will be around 5
+guess_profit_high <- profits_hi_df %>% 
+                  slice(which.min(abs(X_hi - 5)))
+guess_profit_low <- profits_lo_df %>% 
+                  slice(which.min(abs(X_lo - 5)))
+
+#total profit from guessing
+guess_profit <- guess_profit_high$profits + guess_profit_low$profits
+
+#difference between max and guess profit -- value of information
+value_of_information <- max_profit - guess_profit
+
+```
 
 
 
