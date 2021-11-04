@@ -129,7 +129,7 @@ profits = function(E,X, a=1, b=0.1)
 
 
 E_norm <- rnorm(mean = 1.5, sd = 0.3, n = 100)
-X_lo <- seq(0, 10, length.out=100)
+X_lo <- seq(0, 12.5, length.out=100)
 X_hi <- seq(0, 40, length.out=100)
 X_norm<- seq(0, 22.5, length.out=100)
 
@@ -145,6 +145,8 @@ ggplot()+
   geom_line(data = profits_lo_df, aes(x= X_lo, y=profits))+
   geom_line(data = profits_hi_df, aes(x= X_hi, y=profits))+
   theme_minimal() +
+  geom_text(aes(x = 12.7,y = 6, label= "Average choice (no info)", hjust = 0), size = 3, color = "gray34")+
+  geom_vline(aes(xintercept = 12.5),linetype = "dashed", color = "dodgerblue1")+
   labs(x = "Choice (X)",
        y = "Profits")
 
