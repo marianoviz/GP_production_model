@@ -1,0 +1,96 @@
+---
+title: "voi_fx"
+author: "Mariano Viz"
+date: "01/12/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(janitor)
+
+```
+
+
+```{r}
+# VOI function:
+voi = function(data, management_choice, profits_E1, profits_E2, profits_E3, profits_E4, profits_E5, p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2
+               ) {
+  #(add error checking)
+  df <- data
+  
+  df <- rename(df, choice = management_choice) 
+  df <- rename(df, prof_E1 = profits_E1) 
+  df <- rename(df, prof_E2 = profits_E2) 
+  df <- rename(df, prof_E3 = profits_E3) 
+  df <- rename(df, prof_E4 = profits_E4) 
+  df <- rename(df, prof_E5 = profits_E5) 
+      
+  df$P1_p1 = df$prof_E1*p1 
+  df$P2_p2 = df$prof_E2*p2
+  df$P3_p3 = df$prof_E3*p3
+  df$P4_p4 = df$prof_E4*p4
+  df$P5_p5 = df$prof_E5*p5 
+  df$total_P <- rowSums(df[ , c(c(ncol(data)+1):c(ncol(df)))], na.rm=TRUE)
+    
+  
+  c_x <- which(colnames(df)== "choice") #column #: management_choice
+  
+  P1 <- which.max(df$prof_E1) # max profits
+  P2 <- which.max(df$prof_E2)
+  P3 <- which.max(df$prof_E3)
+  P4 <- which.max(df$prof_E4)
+  P5 <- which.max(df$prof_E5)
+  P_total <- which.max(df$total_P)
+
+  
+  x_1 <- as.numeric(df[P1, c_x]) #best management choice
+  x_2 <- as.numeric(df[P2, c_x])
+  x_3 <- as.numeric(df[P3, c_x])
+  x_4 <- as.numeric(df[P4, c_x])
+  x_5 <- as.numeric(df[P5, c_x])
+  x_star <- as.numeric(df[P_total, c_x])
+  
+  
+ x_star_row <- which(grepl(x_star, df$choice)) #row with x_star management choice
+  
+ 
+ P_1_x_star <-as.numeric(df[x_star_row, which(colnames(df)== "prof_E1")]) #profits for diff environmental conditions choosing x_star
+ P_2_x_star <- as.numeric(df[x_star_row, which(colnames(df)== "prof_E2")])
+ P_3_x_star <- as.numeric(df[x_star_row, which(colnames(df)== "prof_E3")])
+ P_4_x_star <- as.numeric(df[x_star_row, which(colnames(df)== "prof_E4")])
+ P_5_x_star <- as.numeric(df[x_star_row, which(colnames(df)== "prof_E5")])
+ 
+ value_no_info <- P_1_x_star*p1 + P_2_x_star*p2 +P_3_x_star*p3 +P_4_x_star*p4 +P_5_x_star*p5 
+ value_info <- max(df$prof_E1, na.rm=TRUE)*p1 + max(df$prof_E2, na.rm=TRUE)*p2 +max(df$prof_E3, na.rm=TRUE)*p3 + max(df$prof_E4, na.rm=TRUE)*p4 + max(df$prof_E5, na.rm=TRUE)*p5
+ 
+ voi = value_info - value_no_info
+ 
+  return(voi)
+
+}
+
+
+```
+
+
+
+```{r}
+#Test function:
+
+pom <- read_csv("stock_den_pom.csv") %>% 
+  clean_names() 
+
+voi(data = pom, 
+    management_choice = "stocking_density", 
+    profits_E1 = "profits_pom_2_mg_l", 
+    profits_E2 = "profits_pom_5_mg_l", 
+    profits_E3 = "profits_pom_7_mg_l", 
+    profits_E4 = "profits_pom_10_mg_l", 
+    profits_E5 = "profits_pom_12_mg_l", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+```
+
