@@ -1,0 +1,97 @@
+---
+title: "Testing VOI function"
+author: "Mariano Viz"
+date: "15/01/2022"
+output: 
+  html_document:
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(tidyverse)
+library(janitor)
+library(ggpubr)
+library(kableExtra)
+library(patchwork)
+
+```
+
+```{r}
+source("R/voi.R") #sourcing function
+```
+
+
+```{r}
+#Read in data
+chl <- read_csv("data/chlorophyll_180_days.csv") %>% 
+  clean_names() 
+
+cs <- read_csv("data/current_speed_180_days.csv") %>% 
+  clean_names() 
+
+temp <- read_csv("data/temperature_180_days.csv") %>% 
+  clean_names() 
+
+pom <- read_csv("data/POM_180_days.csv") %>% 
+  clean_names() 
+
+```
+
+
+```{r}
+#Using function for chlorophyll
+voi(data = chl, 
+    management_choice = "density", 
+    profits_E1 = "profits_chl_2", 
+    profits_E2 = "profits_chl_7", 
+    profits_E3 = "profits_chl_10", 
+    profits_E4 = "profits_chl_15", 
+    profits_E5 = "profits_chl_20", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+```
+
+
+```{r}
+#Using function for current speed
+voi(data = cs, 
+    management_choice = "density", 
+    profits_E1 = "profits_cs_0_05", 
+    profits_E2 = "profits_cs_0_07", 
+    profits_E3 = "profits_cs_0_1", 
+    profits_E4 = "profits_cs_0_12", 
+    profits_E5 = "profits_cs_0_14", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+```
+
+
+```{r}
+#Using function for temperature
+voi(data = temp, 
+    management_choice = "density", 
+    profits_E1 = "profits_temp_4", 
+    profits_E2 = "profits_temp_8", 
+    profits_E3 = "profits_temp_12", 
+    profits_E4 = "profits_temp_16", 
+    profits_E5 = "profits_temp_20", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+```
+
+
+```{r}
+#Using function for POM
+voi(data = pom, 
+    management_choice = "density", 
+    profits_E1 = "profits_pom_2", 
+    profits_E2 = "profits_pom_5", 
+    profits_E3 = "profits_pom_7", 
+    profits_E4 = "profits_pom_10", 
+    profits_E5 = "profits_pom_12", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+```
+
+
