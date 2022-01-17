@@ -3,8 +3,7 @@ title: "Testing VOI function"
 author: "Mariano Viz"
 date: "15/01/2022"
 output: 
-  html_document:
-    code_folding: hide
+  html_document
 ---
 
 ```{r setup, include=FALSE}
