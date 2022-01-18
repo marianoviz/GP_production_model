@@ -92,21 +92,21 @@ voi = function(data,
     geom_line(aes(x = choice, y = prof_E4))+
     geom_line(aes(x = choice, y = prof_E5))+
     scale_y_continuous(labels = scales::label_number_si())+
-    geom_point(aes(x=x_1, y=max(df$prof_E1, na.rm=TRUE)), color="dodgerblue2", alpha = 0.05)+
-    geom_point(aes(x=x_2, y=max(df$prof_E2, na.rm=TRUE)), color="dodgerblue2", alpha = 0.05)+
-    geom_point(aes(x=x_2, y=max(df$prof_E3, na.rm=TRUE)), color="dodgerblue2", alpha = 0.05)+
-    geom_point(aes(x=x_4, y=max(df$prof_E4, na.rm=TRUE)), color="dodgerblue2", alpha = 0.05)+
-    geom_point(aes(x=x_5, y=max(df$prof_E5, na.rm=TRUE)), color="dodgerblue2", alpha = 0.05)+
-    geom_segment(aes(x = x_1, y = 0, xend = x_1, yend = max(df$prof_E1, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E1, na.rm=TRUE), xend = x_1, yend = max(df$prof_E1, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_2, y = 0, xend = x_2, yend = max(df$prof_E2, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E2, na.rm=TRUE), xend = x_2, yend = max(df$prof_E2, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_3, y = 0, xend = x_3, yend = max(df$prof_E3, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E3, na.rm=TRUE), xend = x_3, yend = max(df$prof_E3, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_4, y = 0, xend = x_4, yend = max(df$prof_E4, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E4, na.rm=TRUE), xend = x_4, yend = max(df$prof_E4, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_5, y = 0, xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E5, na.rm=TRUE), xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "dodgerblue2", linetype="dashed", alpha = 0.01)+
+    geom_point(aes(x=x_1, y=max(df$prof_E1, na.rm=TRUE)), color="red1", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_2, y=max(df$prof_E2, na.rm=TRUE)), color="red1", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_2, y=max(df$prof_E3, na.rm=TRUE)), color="red1", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_4, y=max(df$prof_E4, na.rm=TRUE)), color="red1", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_5, y=max(df$prof_E5, na.rm=TRUE)), color="red1", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = x_1, y = 0, xend = x_1, yend = max(df$prof_E1, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(df$prof_E1, na.rm=TRUE), xend = x_1, yend = max(df$prof_E1, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_2, y = 0, xend = x_2, yend = max(df$prof_E2, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(df$prof_E2, na.rm=TRUE), xend = x_2, yend = max(df$prof_E2, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_3, y = 0, xend = x_3, yend = max(df$prof_E3, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(df$prof_E3, na.rm=TRUE), xend = x_3, yend = max(df$prof_E3, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_4, y = 0, xend = x_4, yend = max(df$prof_E4, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(df$prof_E4, na.rm=TRUE), xend = x_4, yend = max(df$prof_E4, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_5, y = 0, xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(df$prof_E5, na.rm=TRUE), xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "red1", linetype="dashed", alpha = 0.01)+
     theme_minimal()+
     labs(title = "Perfect Information",
          x = "Management Choice",
@@ -123,21 +123,21 @@ voi = function(data,
     geom_line(aes(x = choice, y = prof_E4))+
     geom_line(aes(x = choice, y = prof_E5))+
     scale_y_continuous(labels = scales::label_number_si())+
-    geom_point(aes(x=x_star, y=P_1_x_star), color="darkorange2", alpha = 0.05)+
-    geom_point(aes(x=x_star, y=P_2_x_star), color="darkorange2", alpha = 0.05)+
-    geom_point(aes(x=x_star, y=P_3_x_star), color="darkorange2", alpha = 0.05)+
-    geom_point(aes(x=x_star, y=P_4_x_star), color="darkorange2", alpha = 0.05)+
-    geom_point(aes(x=x_star, y=P_5_x_star), color="darkorange2", alpha = 0.05)+
-    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_1_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = P_1_x_star, xend = x_star, yend = P_1_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_2_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = P_2_x_star, xend = x_star, yend = P_2_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_3_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = P_3_x_star, xend = x_star, yend = P_3_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_4_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = P_4_x_star, xend = x_star, yend = P_4_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_5_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = P_5_x_star, xend = x_star, yend = P_5_x_star), color = "darkorange2", linetype="dashed", alpha = 0.01)+
+    geom_point(aes(x=x_star, y=P_1_x_star), color="cyan1", alpha = 0.05, shape = 11)+
+    geom_point(aes(x=x_star, y=P_2_x_star), color="cyan1", alpha = 0.05, shape = 11)+
+    geom_point(aes(x=x_star, y=P_3_x_star), color="cyan1", alpha = 0.05, shape = 11)+
+    geom_point(aes(x=x_star, y=P_4_x_star), color="cyan1", alpha = 0.05, shape = 11)+
+    geom_point(aes(x=x_star, y=P_5_x_star), color="cyan1", alpha = 0.05, shape = 11)+
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_1_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = P_1_x_star, xend = x_star, yend = P_1_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_2_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = P_2_x_star, xend = x_star, yend = P_2_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_3_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = P_3_x_star, xend = x_star, yend = P_3_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_4_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = P_4_x_star, xend = x_star, yend = P_4_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_5_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = P_5_x_star, xend = x_star, yend = P_5_x_star), color = "cyan1", linetype="dashed", alpha = 0.01)+
     theme_minimal()+
     labs(title = "Unknown Information",
          x = "Management Choice",
@@ -159,7 +159,7 @@ voi = function(data,
     ggplot(aes(x = env_var, y = perf_info, fill = Information)) + 
     geom_bar(stat = "identity", position = "dodge", width = 0.5) +
     scale_y_continuous(labels = scales::label_number_si())+
-    scale_fill_manual(values=c("darkorange2", "dodgerblue2"), 
+    scale_fill_manual(values=c("cyan1", "red1"), 
                       name="",
                       breaks=c("no_info", "perf_info"),
                       labels=c("Unknown information", "Perfect information"))+
