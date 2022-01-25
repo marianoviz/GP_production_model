@@ -109,8 +109,8 @@ voi = function(data,
     geom_segment(aes(x = 0, y = max(df$prof_E5, na.rm=TRUE), xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
     theme_minimal()+
     labs(title = "Perfect Information",
-         x = "Management Choice",
-         y = "Profits") + 
+         x = "Stocking Density (ind/m^3)",
+         y = "Profits ($)") + 
     theme(axis.title = element_text(size = 8)) +
     theme(plot.title = element_text(size = 8))
   
@@ -140,8 +140,8 @@ voi = function(data,
     geom_segment(aes(x = 0, y = P_5_x_star, xend = x_star, yend = P_5_x_star), color = "red1", linetype="dashed", alpha = 0.01)+
     theme_minimal()+
     labs(title = "Unknown Information",
-         x = "Management Choice",
-         y = "Profits")+ 
+         x = "Stocking Density (ind/m^3)",
+         y = "Profits ($)")+ 
     theme(axis.title = element_text(size = 8)) +
     theme(plot.title = element_text(size = 8))
   
@@ -165,7 +165,7 @@ voi = function(data,
                       labels=c("Unknown information", "Perfect information"))+
     theme_minimal()+
     labs(x = "Environmental variable",
-         y = "Profits")+
+         y = "Profits ($)")+
     theme(legend.text = element_text(size=7))+
     theme(legend.title = element_text(size=7))+
     theme(legend.key.size = unit(0.3, 'cm'))+
