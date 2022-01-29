@@ -139,7 +139,7 @@ voi = function(data,
     geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_5_x_star), color = "red1", linetype="dashed", alpha = 0.01)+
     geom_segment(aes(x = 0, y = P_5_x_star, xend = x_star, yend = P_5_x_star), color = "red1", linetype="dashed", alpha = 0.01)+
     theme_minimal()+
-    labs(title = "Unknown Information",
+    labs(title = "Uncertain information",
          x = "Stocking Density (ind/m^3)",
          y = "Profits ($)")+ 
     theme(axis.title = element_text(size = 8)) +
@@ -149,11 +149,11 @@ voi = function(data,
   
   #Graph 3
   t<- tribble(~env_var, ~no_info, ~perf_info, #dataframe for graph 3
-              "E1", P_1_x_star, max(df$prof_E1, na.rm=TRUE),
-              "E2", P_2_x_star, max(df$prof_E2, na.rm=TRUE),
-              "E3", P_3_x_star, max(df$prof_E3, na.rm=TRUE),
-              "E4", P_4_x_star, max(df$prof_E4, na.rm=TRUE),
-              "E5", P_5_x_star, max(df$prof_E5, na.rm=TRUE))
+              "1", P_1_x_star, max(df$prof_E1, na.rm=TRUE),
+              "2", P_2_x_star, max(df$prof_E2, na.rm=TRUE),
+              "3", P_3_x_star, max(df$prof_E3, na.rm=TRUE),
+              "4", P_4_x_star, max(df$prof_E4, na.rm=TRUE),
+              "5", P_5_x_star, max(df$prof_E5, na.rm=TRUE))
   g3 <- t %>% 
     pivot_longer(-env_var, names_to = "Information", values_to = "perf_info") %>% 
     ggplot(aes(x = env_var, y = perf_info, fill = Information)) + 
@@ -162,9 +162,9 @@ voi = function(data,
     scale_fill_manual(values=c("red1", "chartreuse3"), 
                       name="",
                       breaks=c("no_info", "perf_info"),
-                      labels=c("Unknown information", "Perfect information"))+
+                      labels=c("Uncertain information", "Perfect information"))+
     theme_minimal()+
-    labs(x = "Environmental variable",
+    labs(x = "Scenario",
          y = "Profits ($)")+
     theme(legend.text = element_text(size=7))+
     theme(legend.title = element_text(size=7))+
@@ -176,12 +176,12 @@ voi = function(data,
   
   
   #Table
-  t1 <- tribble(~"Environmental variable", ~"Unknown information", ~"Perfect information", ~"Probability",
-                "E1", P_1_x_star, max(df$prof_E1, na.rm=TRUE), p1,
-                "E2", P_2_x_star, max(df$prof_E2, na.rm=TRUE), p2,
-                "E3", P_3_x_star, max(df$prof_E3, na.rm=TRUE), p3,
-                "E4", P_4_x_star, max(df$prof_E4, na.rm=TRUE), p4,
-                "E5", P_5_x_star, max(df$prof_E5, na.rm=TRUE), p5,
+  t1 <- tribble(~"Scenario", ~"Uncertain information", ~"Perfect information", ~"Probability",
+                "1", P_1_x_star, max(df$prof_E1, na.rm=TRUE), p1,
+                "2", P_2_x_star, max(df$prof_E2, na.rm=TRUE), p2,
+                "3", P_3_x_star, max(df$prof_E3, na.rm=TRUE), p3,
+                "4", P_4_x_star, max(df$prof_E4, na.rm=TRUE), p4,
+                "5", P_5_x_star, max(df$prof_E5, na.rm=TRUE), p5,
                 "Total Value", value_no_info, value_info, 1) 
   
   #Table format
