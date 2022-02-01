@@ -110,7 +110,7 @@ voi = function(data,
     theme_minimal()+
     labs(title = "Perfect Information",
          x = "Stocking Density (ind/m^3)",
-         y = "Profits ($)") + 
+         y = "Expected Profits ($)") + 
     theme(axis.title = element_text(size = 8)) +
     theme(plot.title = element_text(size = 8))
   
@@ -141,7 +141,7 @@ voi = function(data,
     theme_minimal()+
     labs(title = "Uncertain information",
          x = "Stocking Density (ind/m^3)",
-         y = "Profits ($)")+ 
+         y = "Expected Profits ($)")+ 
     theme(axis.title = element_text(size = 8)) +
     theme(plot.title = element_text(size = 8))
   
@@ -165,7 +165,7 @@ voi = function(data,
                       labels=c("Uncertain information", "Perfect information"))+
     theme_minimal()+
     labs(x = "Scenario",
-         y = "Profits ($)")+
+         y = "Expected Profits ($)")+
     theme(legend.text = element_text(size=7))+
     theme(legend.title = element_text(size=7))+
     theme(legend.key.size = unit(0.3, 'cm'))+
