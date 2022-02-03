@@ -1,0 +1,102 @@
+---
+title: "Basic VoI Plots"
+author: "Mariano Viz"
+date: "01/02/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+
+library(tidyverse)
+
+data <- read_csv("voi_plots.csv")
+```
+
+
+#Basic VoI Plots
+
+
+```{r}
+ggplot(data = data, aes(x = management_decision))+
+  geom_line(aes(y=prof_e_lo))+
+  geom_line(aes(y=prof_e_hi))+
+  geom_point(aes(x=12, y=9.295), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
+  geom_point(aes(x=20, y=20), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 20, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+```
+
+
+
+```{r}
+
+ggplot(data = data, aes(x = management_decision))+
+  geom_line(aes(y=prof_e_lo))+
+  geom_line(aes(y=prof_e_hi))+
+  geom_line(aes(y=prof_ave), color = "gray80")+
+  geom_point(aes(x=15.746, y=13.757), color="red1", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=19.095), color="red1", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=8.389), color="red1", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
+  geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 19.095, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "red1", linetype="dashed", alpha = 0.01)+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+```
+
+```{r}
+ggplot(data = data, aes(x = management_decision))+
+  geom_line(aes(y=prof_e_lo))+
+  geom_line(aes(y=prof_e_hi))+
+  geom_line(aes(y=prof_ave), color = "gray80")+
+  geom_point(aes(x=12, y=9.295), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
+  geom_point(aes(x=20, y=20), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
+  geom_point(aes(x=15.746, y=13.757), color="red1", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=19.095), color="red1", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=8.389), color="red1", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
+  geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 19.095, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "red1", linetype="dashed", alpha = 0.01)+
+  
+  geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 20, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
+  scale_y_continuous(breaks=c(0, 8.38, 9.29, 19.09, 20), limits = c(0,21))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)",
+       caption = "
+Expected Profit with Perfect Information = $9.29*(0.5) + $20*(0.5) = $14.64
+
+Expected Profit with Uncertain Information = $8.38*(0.5) + $19.05*(0.5) = $13.71
+
+Value of information: $14.64 - $13.71 = $0.93")+
+    theme(plot.caption.position = "plot",
+        plot.caption = element_text(hjust = 0))
+```
+
+
