@@ -91,7 +91,7 @@ voi = function(data,
     geom_line(aes(x = choice, y = prof_E3))+
     geom_line(aes(x = choice, y = prof_E4))+
     geom_line(aes(x = choice, y = prof_E5))+
-    scale_y_continuous(labels = scales::label_number_si())+
+    scale_y_continuous(labels = scales::label_number_si(accuracy = 0.1))+
     geom_point(aes(x=x_1, y=max(df$prof_E1, na.rm=TRUE)), color="chartreuse3", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_2, y=max(df$prof_E2, na.rm=TRUE)), color="chartreuse3", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_3, y=max(df$prof_E3, na.rm=TRUE)), color="chartreuse3", alpha = 0.05, shape = 15)+
@@ -122,7 +122,7 @@ voi = function(data,
     geom_line(aes(x = choice, y = prof_E3))+
     geom_line(aes(x = choice, y = prof_E4))+
     geom_line(aes(x = choice, y = prof_E5))+
-    scale_y_continuous(labels = scales::label_number_si())+
+    scale_y_continuous(labels = scales::label_number_si(accuracy = 0.1))+
     geom_point(aes(x=x_star, y=P_1_x_star), color="red1", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_star, y=P_2_x_star), color="red1", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_star, y=P_3_x_star), color="red1", alpha = 0.05, shape = 15)+
@@ -158,7 +158,7 @@ voi = function(data,
     pivot_longer(-env_var, names_to = "Information", values_to = "perf_info") %>% 
     ggplot(aes(x = env_var, y = perf_info, fill = Information)) + 
     geom_bar(stat = "identity", position = "dodge", width = 0.5) +
-    scale_y_continuous(labels = scales::label_number_si())+
+    scale_y_continuous(labels = scales::label_number_si(accuracy = 0.1))+
     scale_fill_manual(values=c("red1", "chartreuse3"), 
                       name="",
                       breaks=c("no_info", "perf_info"),
