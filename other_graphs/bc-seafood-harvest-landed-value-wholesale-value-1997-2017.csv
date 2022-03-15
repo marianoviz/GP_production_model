@@ -1,0 +1,169 @@
+Species,Year ,Landings_1000_tonnes,Landed_Value_millions,Wholesale_Values_millions
+Wild Salmon,1997,48.7,109.7,306.2
+Farmed Salmon,1997,36.5,176.1,229.3
+Groundfish,1997,142.9,128.1,199.1
+Wild Shellfish,1997,19.5,112.2,146.6
+Farmed Shellfish,1997,5.7,8.7,11.1
+Herring,1997,31.9,66.9,117.2
+Other Wild,1997,1.8,2.1,8
+Other Farmed,1997,0.1,0.6,0.6
+Wild Salmon,1998,30.3,54,208.3
+Farmed Salmon,1998,42.2,228.9,264.1
+Groundfish,1998,139.2,121.8,218.4
+Wild Shellfish,1998,19.3,94.3,137
+Farmed Shellfish,1998,6.1,9,16
+Herring,1998,33.9,36.6,107.7
+Other Wild,1998,1.5,1.5,8.2
+Other Farmed,1998,0.1,0.4,0.5
+Wild Salmon,1999,17,26.3,170.5
+Farmed Salmon,1999,49.6,290.5,333.9
+Groundfish,1999,139.9,130.9,209.2
+Wild Shellfish,1999,17,95.1,140.3
+Farmed Shellfish,1999,6.5,10.5,18.1
+Herring,1999,27.1,48.6,122
+Other Wild,1999,4.8,10.6,14.5
+Other Farmed,1999,0.1,0.4,0.4
+Wild Salmon,2000,18.9,50.4,199.8
+Farmed Salmon,2000,49.4,281.7,326
+Groundfish,2000,75.2,136.8,194.7
+Wild Shellfish,2000,17.7,118.2,169.3
+Farmed Shellfish,2000,6.5,12.1,22.9
+Herring,2000,27.8,50.1,129.1
+Other Wild,2000,6,16.7,23.2
+Other Farmed,2000,0.1,0.5,0.5
+Wild Salmon,2001,24.7,37.1,161.9
+Farmed Salmon,2001,68,270.9,323
+Groundfish,2001,115.7,125.3,224.2
+Wild Shellfish,2001,20.1,129.5,182.4
+Farmed Shellfish,2001,8.9,17.2,25.6
+Herring,2001,24.5,46.2,112.6
+Other Wild,2001,6.9,20.5,24.6
+Other Farmed,2001,0.1,0.5,1.3
+Wild Salmon,2002,33.3,57.3,198.6
+Farmed Salmon,2002,84.3,289,338.9
+Groundfish,2002,114.7,131.3,235.6
+Wild Shellfish,2002,18.6,108.4,181.3
+Farmed Shellfish,2002,9.1,15.2,28.4
+Herring,2002,27.3,48.4,129.4
+Other Wild,2002,5.8,13.3,23.3
+Other Farmed,2002,0.1,0.7,1.8
+Wild Salmon,2003,38.6,48.8,188.4
+Farmed Salmon,2003,72.7,255.8,302
+Groundfish,2003,128,137.2,279.8
+Wild Shellfish,2003,20.6,123.9,192.7
+Farmed Shellfish,2003,10.2,17.9,30.7
+Herring,2003,30.5,45.1,109.5
+Other Wild,2003,8.4,14.9,24.4
+Other Farmed,2003,0.2,1,2.6
+Wild Salmon,2004,25.9,53.2,220.1
+Farmed Salmon,2004,61.8,225.2,287.2
+Groundfish,2004,181.5,147.5,257.9
+Wild Shellfish,2004,21.7,129.4,190.2
+Farmed Shellfish,2004,9.9,15.9,26.3
+Herring,2004,25.5,34,97.6
+Other Wild,2004,14.2,28.6,41.3
+Other Farmed,2004,0.2,1.6,2.4
+Wild Salmon,2005,27.3,34.2,218.6
+Farmed Salmon,2005,70.4,318.3,375.8
+Groundfish,2005,170.6,156.7,292.8
+Wild Shellfish,2005,18.1,125.7,171.8
+Farmed Shellfish,2005,10.1,17.9,30.2
+Herring,2005,30.8,32.5,89.1
+Other Wild,2005,10.4,18.5,35.1
+Other Farmed,2005,0.4,2.6,3.1
+Wild Salmon,2006,24.3,60.9,225.7
+Farmed Salmon,2006,78,407.4,450.4
+Groundfish,2006,148.5,149.5,315.1
+Wild Shellfish,2006,15.1,110.8,155.4
+Farmed Shellfish,2006,10.2,19,33.7
+Herring,2006,23.5,18.3,59.9
+Other Wild,2006,7.9,18.4,38.9
+Other Farmed,2006,0.8,3.8,5.2
+Wild Salmon,2007,20.2,31.6,182.1
+Farmed Salmon,2007,78.9,384.1,469.3
+Groundfish,2007,122.3,135.5,338
+Wild Shellfish,2007,16.9,110.2,155.6
+Farmed Shellfish,2007,9.9,21.3,32.8
+Herring,2007,11.8,20.2,57.1
+Other Wild,2007,8.7,19.3,32.9
+Other Farmed,2007,1.1,5,5.6
+Wild Salmon,2008,5.4,21.8,138.1
+Farmed Salmon,2008,81.4,409.3,495.2
+Groundfish,2008,115.8,123.8,321.7
+Wild Shellfish,2008,16.1,99.5,157
+Farmed Shellfish,2008,7.5,16.2,28.3
+Herring,2008,11.4,16,48.3
+Other Wild,2008,16.2,22.6,51.2
+Other Farmed,2008,2.5,9,9.8
+Wild Salmon,2009,18.5,23.7,143.5
+Farmed Salmon,2009,76.3,394.2,493.5
+Groundfish,2009,100.8,108.7,301.4
+Wild Shellfish,2009,15.9,106.9,176.3
+Farmed Shellfish,2009,7.8,17.5,30.3
+Herring,2009,12.3,17.6,65.3
+Other Wild,2009,21.3,20.2,49.6
+Other Farmed,2009,2,11.1,12.3
+Wild Salmon,2010,23.6,70.6,240.9
+Farmed Salmon,2010,78.7,499.7,550.4
+Groundfish,2010,97.6,111.5,281.6
+Wild Shellfish,2010,14.5,112.6,192.6
+Farmed Shellfish,2010,10.1,22,29.9
+Herring,2010,10.2,11.9,43
+Other Wild,2010,29,28.1,74.5
+Other Farmed,2010,2.8,16.9,18.7
+Wild Salmon,2011,20.7,48,221.6
+Farmed Salmon,2011,83.2,435.7,507
+Groundfish,2011,99.6,129.5,312.6
+Wild Shellfish,2011,13.4,130.2,206.8
+Farmed Shellfish,2011,9.1,19.3,29.2
+Herring,2011,10.8,6.3,30.2
+Other Wild,2011,26.4,33.9,75.8
+Other Farmed,2011,1.2,10.5,16.6
+Wild Salmon,2012,13.2,34.4,168.4
+Farmed Salmon,2012,80,409.1,474.6
+Groundfish,2012,89.5,123.4,282.9
+Wild Shellfish,2012,12.9,126.4,201.9
+Farmed Shellfish,2012,8.9,19,34.6
+Herring,2012,13.1,12.5,38.5
+Other Wild,2012,22,16.1,62.2
+Other Farmed,2012,0.7,7.5,15.8
+Wild Salmon,2013,31.6,45.2,178.5
+Farmed Salmon,2013,62.4,416.3,461.8
+Groundfish,2013,97.9,111.7,291.2
+Wild Shellfish,2013,13.39,125.7,206.5
+Farmed Shellfish,2013,8.3,22.6,40.4
+Herring,2013,21.16,17,45.7
+Other Wild,2013,5.4,24.7,63.2
+Other Farmed,2013,1.6,12.1,22.9
+Wild Salmon,2014,42.6,137.9,307.3
+Farmed Salmon,2014,67.7,398.5,455.6
+Groundfish,2014,85.9,116.7,271.7
+Wild Shellfish,2014,13.6,142,211.7
+Farmed Shellfish,2014,10.2,22.1,50.5
+Herring,2014,20.8,15.7,43.2
+Other Wild,2014,5.1,16.4,62.2
+Other Farmed,2014,1.5,12.9,31.7
+Wild Salmon,2015,20.8,61.9,183.4
+Farmed Salmon,2015,93,473.5,531.4
+Groundfish,2015,87.6,139.6,278.4
+Wild Shellfish,2015,18.3,145.2,213.2
+Farmed Shellfish,2015,11,25.6,51.6
+Herring,2015,22.5,15.5,49.3
+Other Wild,2015,5.3,15.3,54.3
+Other Farmed,2015,1.2,8.8,29.9
+Wild Salmon,2016,24.7,77.9,212.4
+Farmed Salmon,2016,92.8,743.3,799.8
+Groundfish,2016,120.2,151.7,314.3
+Wild Shellfish,2016,14.3,121.1,221.6
+Farmed Shellfish,2016,11,24.7,55.6
+Herring,2016,24.1,21.4,55.1
+Other Wild,2016,3.1,21.9,73.7
+Other Farmed,2016,1.7,13.4,32.9
+Wild Salmon,2017,13.7,55.4,199
+Farmed Salmon,2017,85.7,728.6,778
+Groundfish,2017,126.6,158.8,311
+Wild Shellfish,2017,12.1,151.3,238.8
+Farmed Shellfish,2017,9.1,21.8,61.9
+Herring,2017,27.9,27.5,68.7
+Other Wild,2017,2.5,17.2,61
+Other Farmed,2017,1.7,17.8,30.3

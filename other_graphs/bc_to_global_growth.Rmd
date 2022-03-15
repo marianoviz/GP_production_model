@@ -1,0 +1,40 @@
+---
+title: "Untitled"
+author: "Tom Wheeler"
+date: "3/14/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(here)
+
+bc_data <- read_csv(here("other_graphs", "bc-seafood-harvest-landed-value-wholesale-value-1997-2017.csv"))
+global_data <- read_csv(here("other_graphs", "20-year-retrospective-review.csv"))
+```
+
+```{r}
+bc_data_shellfish <- bc_data %>% 
+  filter(Species == "Farmed Shellfish") %>% 
+  mutate(location = "BC") %>% 
+  select(-c(Landed_Value_millions, Wholesale_Values_millions, Species)) %>% 
+  mutate(Landings_1000_tonnes = (Landings_1000_tonnes/5.7)*100)
+
+global_data_shellfish <- global_data %>% 
+  mutate(location = "Global") %>% 
+  select(-c(Total, `Freshwater fish`, Algae, 'C-D-M-M')) %>% 
+  rename(Landings_1000_tonnes = Molluscs) %>% 
+  mutate(Landings_1000_tonnes = (Landings_1000_tonnes/8149930)*100)
+
+total <- rbind(bc_data_shellfish, global_data_shellfish)
+
+ggplot(data = total, aes(x = Year, y = Landings_1000_tonnes, color = location)) +
+  geom_line(size = 1) +
+  geom_point(size = 3) +
+  geom_smooth() +
+  ylab("Percent growth relative to 1997 level") +
+  theme_classic()
+```
+
