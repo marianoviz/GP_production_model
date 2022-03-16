@@ -32,8 +32,8 @@ total <- rbind(bc_data_shellfish, global_data_shellfish)
 
 ggplot(data = total, aes(x = Year, y = Landings_1000_tonnes, color = location)) +
   geom_line(size = 1) +
-  geom_point(size = 3) +
-  geom_smooth() +
+  geom_point(size = 3) + 
+  scale_color_manual(values=c("#66b2b2", "#77767a")) +
   ylab("Percent growth relative to 1997 level") +
   theme_classic()
 ```
