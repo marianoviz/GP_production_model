@@ -2,16 +2,798 @@
 title: "Basic VoI Plots"
 author: "Mariano Viz"
 date: "01/02/2022"
-output: html_document
+output: 
+  html_document:
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 
 library(tidyverse)
+library(janitor)
+library(ggpubr)
+library(kableExtra)
+library(patchwork)
+
+
 
 data <- read_csv("voi_plots.csv")
+
+nv_1 <- read_csv("1_1.csv")
+nv_2 <- read_csv("1_2.csv")
+nv_3 <- read_csv("1_3.csv")
+
+l_1 <- read_csv("2_1.csv")
+l_2 <- read_csv("2_2.csv")
+l_3 <- read_csv("2_3.csv")
+
+h_1 <- read_csv("3_1.csv")
+h_2 <- read_csv("3_2.csv")
+h_3 <- read_csv("3_3.csv")
 ```
+
+# VOI Examples
+
+```{r}
+
+ggplot(data = nv_1, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = nv_2, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = nv_3, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = l_1, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = l_2, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = l_3, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = h_1, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = h_2, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+
+ggplot(data = h_3, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")
+
+```
+
+
+
+
+
+
+```{r}
+nv1 <- ggplot(data = nv_1, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+  geom_point(aes(x=20, y=max(nv_1$prof_1, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_2, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_3, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_4, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_5, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_1, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_2, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_3, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_4, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_5, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  theme_minimal()+
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+
+
+nv2 <- ggplot(data = nv_2, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+  geom_point(aes(x=20, y=max(nv_2$prof_1, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_2, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_3, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_4, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_5, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_1, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_2, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_3, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_4, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_5, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  theme_minimal()+
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+nv3 <- ggplot(data = nv_3, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+  geom_point(aes(x=20, y=max(nv_3$prof_1, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_2, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_3, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_4, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_5, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_1, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_2, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_3, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_4, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_5, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  theme_minimal()+
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+#################3
+
+
+
+nv11 <- ggplot(data = nv_1, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+    geom_point(aes(x=20, y=max(nv_1$prof_1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_4, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_5, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_1, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_2, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_3, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_4, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_1$prof_5, na.rm=TRUE), xend = 20, yend = max(nv_1$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  theme_minimal()+
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+
+
+nv21 <- ggplot(data = nv_2, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+    geom_point(aes(x=20, y=max(nv_2$prof_1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_4, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_5, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_1, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_2, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_3, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_4, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_2$prof_5, na.rm=TRUE), xend = 20, yend = max(nv_2$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+nv31 <- ggplot(data = nv_3, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+    geom_point(aes(x=20, y=max(nv_3$prof_1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_4, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_5, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_1, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_2, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_3, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_4, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 0, y = max(nv_3$prof_5, na.rm=TRUE), xend = 20, yend = max(nv_3$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01) +
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+    
+```
+
+
+
+
+```{r}
+# VOI: Horizontal Value
+
+source("R/voi_1.R")
+source("R/voi.R")
+
+
+l_1[is.na(l_1)] <- 0
+l_2[is.na(l_2)] <- 0
+l_3[is.na(l_3)] <- 0
+h_1[is.na(h_1)] <- 0
+h_2[is.na(h_2)] <- 0
+h_3[is.na(h_3)] <- 0
+
+l1 <- voi(data = l_1, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+l2 <- voi(data = l_2, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+l3 <- voi(data = l_3, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h1 <- voi(data = h_1, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h2 <- voi(data = h_2, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h3 <- voi(data = h_3, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+
+
+
+
+##############
+
+
+l11 <- voi_1(data = l_1, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+l21 <- voi_1(data = l_2, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+l31 <- voi_1(data = l_3, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h11 <- voi_1(data = h_1, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h21 <- voi_1(data = h_2, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h31 <- voi_1(data = h_3, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+
+
+```
+
+
+
+
+```{r}
+(nv11|l1|h1) / (nv21|l2|h2) / (nv31|l3|h3)
+```
+
+
+
+
+
+
+```{r}
+(nv1|l11|h11) / (nv2|l21|h21) / (nv3|l31|h31)
+```
+
+```{r}
+source("R/voi_2.R")
+
+
+nv12 <- ggplot(data = nv_1, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+  geom_point(aes(x=20, y=max(nv_1$prof_1, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_2, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_3, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_4, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_5, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+  
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_point(aes(x=20, y=max(nv_1$prof_1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_4, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_1$prof_5, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+
+  theme_minimal()+
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+
+
+nv22 <- ggplot(data = nv_2, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+  geom_point(aes(x=20, y=max(nv_2$prof_1, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_2, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_3, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_4, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_5, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+  
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+   
+    geom_point(aes(x=20, y=max(nv_2$prof_1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_4, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_2$prof_5, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+  
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+nv32 <- ggplot(data = nv_3, aes(x = management_decision))+
+  geom_line(aes(y=prof_1))+
+  geom_line(aes(y=prof_2))+
+  geom_line(aes(y=prof_3))+
+  geom_line(aes(y=prof_4))+
+  geom_line(aes(y=prof_5))+
+  theme_minimal() +
+  xlim(0, 125)+
+  ylim(0, 105)+
+  theme(axis.title = element_text(size = 8))+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)")+
+   geom_point(aes(x=20, y=max(nv_3$prof_1, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_2, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_3, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_4, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_5, na.rm=TRUE)), color="#841F27", alpha = 0.05, shape = 15)+
+  
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_1$prof_1, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_2, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_3, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+   
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_4, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+   
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_5, na.rm=TRUE)), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_point(aes(x=20, y=max(nv_3$prof_1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_4, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=20, y=max(nv_3$prof_5, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
+         y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
+    theme(axis.title = element_text(size = 8))+
+    theme(plot.title = element_text(size = 8))
+
+
+
+
+
+l12 <- voi_2(data = l_1, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+l22 <- voi_2(data = l_2, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+l32 <- voi_2(data = l_3, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h12 <- voi_2(data = h_1, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h22 <- voi_2(data = h_2, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+h32 <- voi_2(data = h_3, 
+    management_choice = "management_decision", 
+    profits_E1 = "prof_1", 
+    profits_E2 = "prof_2", 
+    profits_E3 = "prof_3", 
+    profits_E4 = "prof_4", 
+    profits_E5 = "prof_5", 
+    p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+
+```
+
+
+
+
+```{r}
+(nv12|l12|h12) / (nv22|l22|h22) / (nv32|l32|h32)
+```
+
+
+
+
 
 
 #Basic VoI Plots
@@ -21,80 +803,106 @@ data <- read_csv("voi_plots.csv")
 ggplot(data = data, aes(x = management_decision))+
   geom_line(aes(y=prof_e_lo))+
   geom_line(aes(y=prof_e_hi))+
-  geom_point(aes(x=12, y=9.295), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
-  geom_point(aes(x=20, y=20), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
+  geom_point(aes(x=12, y=9.295), color="#66b2b2", alpha = 0.05, shape = 15, size = 3)+
+  geom_point(aes(x=20, y=20), color="#66b2b2", alpha = 0.05, shape = 15, size = 3, label = "point")+
   theme_minimal() +
   geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
   geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 20, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  labs(x = "Stocking Density (ind/m^3)",
-       y = "Expected Profits ($)")
-
-
-```
-
-
-
-```{r}
-
-ggplot(data = data, aes(x = management_decision))+
-  geom_line(aes(y=prof_e_lo))+
-  geom_line(aes(y=prof_e_hi))+
-  geom_line(aes(y=prof_ave), color = "gray80")+
-  geom_point(aes(x=15.746, y=13.757), color="red1", alpha = 0.05, shape = 15, size = 3)+
-  theme_minimal() +
-  geom_point(aes(x=15.746, y=19.095), color="red1", alpha = 0.05, shape = 15, size = 3)+
-  theme_minimal() +
-  geom_point(aes(x=15.746, y=8.389), color="red1", alpha = 0.05, shape = 15, size = 3)+
-  theme_minimal() +
-  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
-  geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 19.095, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "red1", linetype="dashed", alpha = 0.01)+
-  labs(x = "Stocking Density (ind/m^3)",
-       y = "Expected Profits ($)")
-
-
-```
-
-```{r}
-ggplot(data = data, aes(x = management_decision))+
-  geom_line(aes(y=prof_e_lo))+
-  geom_line(aes(y=prof_e_hi))+
-  geom_line(aes(y=prof_ave), color = "gray80")+
-  geom_point(aes(x=12, y=9.295), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
-  geom_point(aes(x=20, y=20), color="chartreuse3", alpha = 0.05, shape = 15, size = 3)+
-  geom_point(aes(x=15.746, y=13.757), color="red1", alpha = 0.05, shape = 15, size = 3)+
-  theme_minimal() +
-  geom_point(aes(x=15.746, y=19.095), color="red1", alpha = 0.05, shape = 15, size = 3)+
-  theme_minimal() +
-  geom_point(aes(x=15.746, y=8.389), color="red1", alpha = 0.05, shape = 15, size = 3)+
-  theme_minimal() +
-  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
-  geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 19.095, xend = 15.746, yend = 19.095), color = "red1", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "red1", linetype="dashed", alpha = 0.01)+
   
-  geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 0, y = 20, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "chartreuse3", linetype="dashed", alpha = 0.01)+
-  scale_y_continuous(breaks=c(0, 8.38, 9.29, 19.09, 20), limits = c(0,21))+
+  geom_text(aes(x = -0.4,y = 9.295, label= "9.3", hjust = 1), size = 3, color = "black")+
+  geom_text(aes(x = -0.4,y = 20, label= "20", hjust = 1), size = 3, color = "black")+
+  
+  geom_text(aes(y = -0.6,x = 20, label= "20"), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 12, label= "12"), size = 3, color = "black")+
+  
+  geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 20, xend = 20, yend = 20), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)",
+       title = "Optimal stocking density with Perfect Information")
+
+
+```
+
+
+
+```{r}
+
+ggplot(data = data, aes(x = management_decision))+
+  geom_line(aes(y=prof_e_lo))+
+  geom_line(aes(y=prof_e_hi))+
+  geom_line(aes(y=prof_ave), color = "gray80")+
+  geom_point(aes(x=15.746, y=13.757), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=19.095), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=8.389), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
+  
+  
+    geom_text(aes(x = -0.4,y = 19.095, label= "19.1", hjust = 1), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 15.746, label= "15.8"), size = 3, color = "black")+
+  geom_text(aes(x = -0.4,y = 8.389, label= "8.4", hjust = 1), size = 3, color = "black")+
+  
+  
+  geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 19.095, xend = 15.746, yend = 19.095), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  labs(x = "Stocking Density (ind/m^3)",
+       y = "Expected Profits ($)",
+       title = "Optimal stocking density with Uncertain Information")
+
+
+```
+
+```{r}
+ggplot(data = data, aes(x = management_decision))+
+  geom_line(aes(y=prof_e_lo))+
+  geom_line(aes(y=prof_e_hi))+
+  geom_line(aes(y=prof_ave), color = "gray80")+
+  geom_point(aes(x=12, y=9.295), color="#66b2b2", alpha = 0.05, shape = 15, size = 3)+
+  geom_point(aes(x=20, y=20), color="#66b2b2", alpha = 0.05, shape = 15, size = 3)+
+  geom_point(aes(x=15.746, y=13.757), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=19.095), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_point(aes(x=15.746, y=8.389), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
+  theme_minimal() +
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
+  geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 19.095, xend = 15.746, yend = 19.095), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "#841F27", linetype="dashed", alpha = 0.01)+
+  
+    
+    geom_text(aes(x = -0.4,y = 19.095, label= "19.1", hjust = 1), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 15.746, label= "15.8"), size = 3, color = "black")+
+  geom_text(aes(x = -0.4,y = 8.389, label= "8.4", hjust = 1), size = 3, color = "black")+
+    geom_text(aes(x = -0.4,y = 9.295, label= "9.3", hjust = 1), size = 3, color = "black")+
+  geom_text(aes(x = -0.4,y = 20, label= "20", hjust = 1), size = 3, color = "black")+
+  
+  geom_text(aes(y = -0.6,x = 20, label= "20"), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 12, label= "12"), size = 3, color = "black")+
+  
+  geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 0, y = 20, xend = 20, yend = 20), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
   labs(x = "Stocking Density (ind/m^3)",
        y = "Expected Profits ($)",
        caption = "
-Expected Profit with Perfect Information = $9.29*(0.5) + $20*(0.5) = $14.64
+Expected Profit with Perfect Information = $9.3*(0.5) + $20*(0.5) = $14.65
 
-Expected Profit with Uncertain Information = $8.38*(0.5) + $19.05*(0.5) = $13.71
+Expected Profit with Uncertain Information = $8.4*(0.5) + $19.1*(0.5) = $13.75
 
-Value of information: $14.64 - $13.71 = $0.93")+
+Value of Information: $14.65 - $13.75 = $0.9",
+title = "Calculating the Value of Information")+
     theme(plot.caption.position = "plot",
         plot.caption = element_text(hjust = 0))
 ```
