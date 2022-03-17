@@ -17,7 +17,7 @@
 #' @author Seeking Shelfish Team
 
 
-voi = function(data, 
+voi_2 = function(data, 
                management_choice, 
                profits_E1, profits_E2, profits_E3, profits_E4, profits_E5, 
                p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2
@@ -91,26 +91,44 @@ voi = function(data,
     geom_line(aes(x = choice, y = prof_E3))+
     geom_line(aes(x = choice, y = prof_E4))+
     geom_line(aes(x = choice, y = prof_E5))+
-    scale_y_continuous(labels = scales::label_number_si(accuracy = 0.1))+
     geom_point(aes(x=x_1, y=max(df$prof_E1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_2, y=max(df$prof_E2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_3, y=max(df$prof_E3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_4, y=max(df$prof_E4, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_5, y=max(df$prof_E5, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
     geom_segment(aes(x = x_1, y = 0, xend = x_1, yend = max(df$prof_E1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E1, na.rm=TRUE), xend = x_1, yend = max(df$prof_E1, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
     geom_segment(aes(x = x_2, y = 0, xend = x_2, yend = max(df$prof_E2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E2, na.rm=TRUE), xend = x_2, yend = max(df$prof_E2, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
     geom_segment(aes(x = x_3, y = 0, xend = x_3, yend = max(df$prof_E3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E3, na.rm=TRUE), xend = x_3, yend = max(df$prof_E3, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
     geom_segment(aes(x = x_4, y = 0, xend = x_4, yend = max(df$prof_E4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E4, na.rm=TRUE), xend = x_4, yend = max(df$prof_E4, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+    
     geom_segment(aes(x = x_5, y = 0, xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
-    geom_segment(aes(x = 0, y = max(df$prof_E5, na.rm=TRUE), xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
+  
+    geom_point(aes(x=x_star, y=P_1_x_star), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_star, y=P_2_x_star), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_star, y=P_3_x_star), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_star, y=P_4_x_star), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_point(aes(x=x_star, y=P_5_x_star), color="#841F27", alpha = 0.05, shape = 15)+
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_1_x_star), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_2_x_star), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_3_x_star), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_4_x_star), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
+    geom_segment(aes(x = x_star, y = 0, xend = x_star, yend = P_5_x_star), color = "#841F27", linetype="dashed", alpha = 0.01)+
+    
     theme_minimal()+
-    labs(title = "Perfect Information",
-         x = "Stocking Density (ind/m^3)",
+    theme_minimal()+
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $",round(voi,0), sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
     theme(axis.title = element_text(size = 8)) +
     theme(plot.title = element_text(size = 8))
   
@@ -192,7 +210,7 @@ voi = function(data,
   
   
   #Text
-  text <- paste("Value of information: $",round(voi,0), sep = "")
+  text <- paste("Value of information: $",round(voi,2), sep = "")
   text.p <- ggparagraph(text = text, face = "bold", size = 12, color = "black")
   
   
@@ -211,6 +229,6 @@ CCC
   
   
   
-  return(f2)
+  return(g1)
   
 }

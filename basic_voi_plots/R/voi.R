@@ -91,7 +91,6 @@ voi = function(data,
     geom_line(aes(x = choice, y = prof_E3))+
     geom_line(aes(x = choice, y = prof_E4))+
     geom_line(aes(x = choice, y = prof_E5))+
-    scale_y_continuous(labels = scales::label_number_si(accuracy = 0.1))+
     geom_point(aes(x=x_1, y=max(df$prof_E1, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_2, y=max(df$prof_E2, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
     geom_point(aes(x=x_3, y=max(df$prof_E3, na.rm=TRUE)), color="#66b2b2", alpha = 0.05, shape = 15)+
@@ -108,9 +107,12 @@ voi = function(data,
     geom_segment(aes(x = x_5, y = 0, xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
     geom_segment(aes(x = 0, y = max(df$prof_E5, na.rm=TRUE), xend = x_5, yend = max(df$prof_E5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
     theme_minimal()+
-    labs(title = "Perfect Information",
-         x = "Stocking Density (ind/m^3)",
+    theme_minimal()+
+    geom_text(aes(x = 95,y = 105, label= paste("VoI: $",round(voi,0), sep = ""), hjust = 0), size = 4, color = "black")+
+    labs(x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)") + 
+    xlim(0, 125)+
+    ylim(0, 105)+
     theme(axis.title = element_text(size = 8)) +
     theme(plot.title = element_text(size = 8))
   
@@ -192,7 +194,7 @@ voi = function(data,
   
   
   #Text
-  text <- paste("Value of information: $",round(voi,0), sep = "")
+  text <- paste("Value of information: $",round(voi,2), sep = "")
   text.p <- ggparagraph(text = text, face = "bold", size = 12, color = "black")
   
   
@@ -211,6 +213,6 @@ CCC
   
   
   
-  return(f2)
+  return(g1)
   
 }
