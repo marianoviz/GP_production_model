@@ -112,7 +112,8 @@ voi = function(data,
          x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)") + 
     theme(axis.title = element_text(size = 8)) +
-    theme(plot.title = element_text(size = 8))
+    theme(plot.title = element_text(size = 8)) +
+    theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
   
   
   #Graph 2 
@@ -143,7 +144,8 @@ voi = function(data,
          x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)")+ 
     theme(axis.title = element_text(size = 8)) +
-    theme(plot.title = element_text(size = 8))
+    theme(plot.title = element_text(size = 8))+
+    theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
   
   
   
@@ -171,7 +173,8 @@ voi = function(data,
     theme(legend.key.size = unit(0.3, 'cm'))+
     theme(legend.position="top") + 
     theme(axis.title = element_text(size = 8)) +
-    theme(plot.title = element_text(size = 8))
+    theme(plot.title = element_text(size = 8)) +
+    theme( text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
   
   
   
@@ -188,12 +191,12 @@ voi = function(data,
   table_theme <- gridExtra::ttheme_default(
     core = list(fg_params=list(cex = 0.55), bg_params = list(fill = 'white', col=NA)),
     colhead = list(fg_params=list(cex = 0.55)),
-    rowhead = list(fg_params=list(cex = 0.55)))
+    rowhead = list(fg_params=list(cex = 0.55)), base_family = "Source Sans Pro")
   
   
   #Text
   text <- paste("Value of information: $",round(voi,0), sep = "")
-  text.p <- ggparagraph(text = text, face = "bold", size = 12, color = "black")
+  text.p <- ggparagraph(text = text, face = "bold", size = 12, color = "black", family = "Source Sans Pro")
   
   
   #Adding graphs, table, and text together

@@ -16,6 +16,8 @@ library(ggpubr)
 library(kableExtra)
 library(patchwork)
 
+library(extrafont)
+
 
 
 data <- read_csv("voi_plots.csv")
@@ -32,6 +34,16 @@ h_1 <- read_csv("3_1.csv")
 h_2 <- read_csv("3_2.csv")
 h_3 <- read_csv("3_3.csv")
 ```
+
+
+```{r}
+#Font:
+library(sysfonts)
+font_add_google("Source Sans Pro")
+
+```
+
+
 
 # VOI Examples
 
@@ -563,7 +575,7 @@ h31 <- voi_1(data = h_3,
 source("R/voi_2.R")
 
 
-nv12 <- ggplot(data = nv_1, aes(x = management_decision))+
+c1_r1 <- ggplot(data = nv_1, aes(x = management_decision))+
   geom_line(aes(y=prof_1))+
   geom_line(aes(y=prof_2))+
   geom_line(aes(y=prof_3))+
@@ -606,18 +618,18 @@ nv12 <- ggplot(data = nv_1, aes(x = management_decision))+
 
   theme_minimal()+
     theme_minimal()+
-    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
     labs(x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)") + 
     xlim(0, 125)+
     ylim(0, 105)+
     theme(axis.title = element_text(size = 8))+
-    theme(plot.title = element_text(size = 8))
+    theme(plot.title = element_text(size = 8))+
+  theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
 
 
 
 
-nv22 <- ggplot(data = nv_2, aes(x = management_decision))+
+c1_r2 <- ggplot(data = nv_2, aes(x = management_decision))+
   geom_line(aes(y=prof_1))+
   geom_line(aes(y=prof_2))+
   geom_line(aes(y=prof_3))+
@@ -662,16 +674,16 @@ nv22 <- ggplot(data = nv_2, aes(x = management_decision))+
     geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_2$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
     
     theme_minimal()+
-    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
     labs(x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)") + 
     xlim(0, 125)+
     ylim(0, 105)+
     theme(axis.title = element_text(size = 8))+
-    theme(plot.title = element_text(size = 8))
+    theme(plot.title = element_text(size = 8))+
+  theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
 
 
-nv32 <- ggplot(data = nv_3, aes(x = management_decision))+
+c1_r3 <- ggplot(data = nv_3, aes(x = management_decision))+
   geom_line(aes(y=prof_1))+
   geom_line(aes(y=prof_2))+
   geom_line(aes(y=prof_3))+
@@ -715,19 +727,20 @@ nv32 <- ggplot(data = nv_3, aes(x = management_decision))+
     geom_segment(aes(x = 20, y = 0, xend = 20, yend = max(nv_3$prof_5, na.rm=TRUE)), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
     
     theme_minimal()+
-    geom_text(aes(x = 95,y = 105, label= paste("VoI: $0", sep = ""), hjust = 0), size = 4, color = "black")+
+
     labs(x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)") + 
     xlim(0, 125)+
     ylim(0, 105)+
     theme(axis.title = element_text(size = 8))+
-    theme(plot.title = element_text(size = 8))
+    theme(plot.title = element_text(size = 8))+
+  theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
 
 
 
 
 
-l12 <- voi_2(data = l_1, 
+c2_r1 <- voi_2(data = l_1, 
     management_choice = "management_decision", 
     profits_E1 = "prof_1", 
     profits_E2 = "prof_2", 
@@ -736,7 +749,7 @@ l12 <- voi_2(data = l_1,
     profits_E5 = "prof_5", 
     p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
 
-l22 <- voi_2(data = l_2, 
+c2_r2 <- voi_2(data = l_2, 
     management_choice = "management_decision", 
     profits_E1 = "prof_1", 
     profits_E2 = "prof_2", 
@@ -745,7 +758,7 @@ l22 <- voi_2(data = l_2,
     profits_E5 = "prof_5", 
     p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
 
-l32 <- voi_2(data = l_3, 
+c2_r3 <- voi_2(data = l_3, 
     management_choice = "management_decision", 
     profits_E1 = "prof_1", 
     profits_E2 = "prof_2", 
@@ -754,7 +767,7 @@ l32 <- voi_2(data = l_3,
     profits_E5 = "prof_5", 
     p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
 
-h12 <- voi_2(data = h_1, 
+c3_r1 <- voi_2(data = h_1, 
     management_choice = "management_decision", 
     profits_E1 = "prof_1", 
     profits_E2 = "prof_2", 
@@ -763,7 +776,7 @@ h12 <- voi_2(data = h_1,
     profits_E5 = "prof_5", 
     p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
 
-h22 <- voi_2(data = h_2, 
+c3_r2 <- voi_2(data = h_2, 
     management_choice = "management_decision", 
     profits_E1 = "prof_1", 
     profits_E2 = "prof_2", 
@@ -772,7 +785,7 @@ h22 <- voi_2(data = h_2,
     profits_E5 = "prof_5", 
     p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
 
-h32 <- voi_2(data = h_3, 
+c3_r3 <- voi_2(data = h_3, 
     management_choice = "management_decision", 
     profits_E1 = "prof_1", 
     profits_E2 = "prof_2", 
@@ -788,7 +801,21 @@ h32 <- voi_2(data = h_3,
 
 
 ```{r}
-(nv12|l12|h12) / (nv22|l22|h22) / (nv32|l32|h32)
+(c1_r1|c2_r1|c3_r1) / (c1_r2|c2_r2|c3_r2) / (c1_r3|c2_r3|c3_r3)
+
+ggsave("c1_r1.png", c1_r1, dpi=1200, bg = "transparent")
+ggsave("c1_r2.png", c1_r2, dpi=1200, bg = "transparent")
+ggsave("c1_r3.png", c1_r3, dpi=1200, bg = "transparent")
+ggsave("c2_r1.png", c2_r1, dpi=1200, bg = "transparent")
+ggsave("c2_r2.png", c2_r2, dpi=1200, bg = "transparent")
+ggsave("c2_r3.png", c2_r3, dpi=1200, bg = "transparent")
+ggsave("c3_r1.png", c3_r1, dpi=1200, bg = "transparent")
+ggsave("c3_r2.png", c3_r2, dpi=1200, bg = "transparent")
+ggsave("c3_r3.png", c3_r3, dpi=1200, bg = "transparent")
+
+
+
+
 ```
 
 
@@ -800,20 +827,20 @@ h32 <- voi_2(data = h_3,
 
 
 ```{r}
-ggplot(data = data, aes(x = management_decision))+
+b1 <- ggplot(data = data, aes(x = management_decision))+
   geom_line(aes(y=prof_e_lo))+
   geom_line(aes(y=prof_e_hi))+
   geom_point(aes(x=12, y=9.295), color="#66b2b2", alpha = 0.05, shape = 15, size = 3)+
   geom_point(aes(x=20, y=20), color="#66b2b2", alpha = 0.05, shape = 15, size = 3, label = "point")+
   theme_minimal() +
-  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0),family = "Source Sans Pro", size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0),family = "Source Sans Pro", size = 3, color = "black")+
   
-  geom_text(aes(x = -0.4,y = 9.295, label= "9.3", hjust = 1), size = 3, color = "black")+
+  geom_text(aes(x = -0.4,y = 9.295, label= "9", hjust = 1), size = 3, color = "black")+
   geom_text(aes(x = -0.4,y = 20, label= "20", hjust = 1), size = 3, color = "black")+
   
-  geom_text(aes(y = -0.6,x = 20, label= "20"), size = 3, color = "black")+
-  geom_text(aes(y = -0.6,x = 12, label= "12"), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 20, label= "X2"), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 12, label= "X1"), size = 3, color = "black")+
   
   geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
   geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
@@ -821,7 +848,10 @@ ggplot(data = data, aes(x = management_decision))+
   geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
   labs(x = "Stocking Density (ind/m^3)",
        y = "Expected Profits ($)",
-       title = "Optimal stocking density with Perfect Information")
+       title = "Optimal stocking density with Perfect Information")+
+   theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
+
+
 
 
 ```
@@ -830,7 +860,7 @@ ggplot(data = data, aes(x = management_decision))+
 
 ```{r}
 
-ggplot(data = data, aes(x = management_decision))+
+b2 <- ggplot(data = data, aes(x = management_decision))+
   geom_line(aes(y=prof_e_lo))+
   geom_line(aes(y=prof_e_hi))+
   geom_line(aes(y=prof_ave), color = "gray80")+
@@ -840,14 +870,14 @@ ggplot(data = data, aes(x = management_decision))+
   theme_minimal() +
   geom_point(aes(x=15.746, y=8.389), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
   theme_minimal() +
-  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0),family = "Source Sans Pro", size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0),family = "Source Sans Pro", size = 3, color = "black")+
+  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0),family = "Source Sans Pro", size = 3, color = "gray80")+
   
   
-    geom_text(aes(x = -0.4,y = 19.095, label= "19.1", hjust = 1), size = 3, color = "black")+
-  geom_text(aes(y = -0.6,x = 15.746, label= "15.8"), size = 3, color = "black")+
-  geom_text(aes(x = -0.4,y = 8.389, label= "8.4", hjust = 1), size = 3, color = "black")+
+    geom_text(aes(x = -0.4,y = 19.095, label= "19", hjust = 1), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 15.746, label= "X*"), size = 3, color = "black")+
+  geom_text(aes(x = -0.4,y = 8.389, label= "8", hjust = 1), size = 3, color = "black")+
   
   
   geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "#841F27", linetype="dashed", alpha = 0.01)+
@@ -855,13 +885,17 @@ ggplot(data = data, aes(x = management_decision))+
   geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "#841F27", linetype="dashed", alpha = 0.01)+
   labs(x = "Stocking Density (ind/m^3)",
        y = "Expected Profits ($)",
-       title = "Optimal stocking density with Uncertain Information")
+       title = "Optimal stocking density with Uncertain Information")+
+   theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
+
+
+
 
 
 ```
 
 ```{r}
-ggplot(data = data, aes(x = management_decision))+
+b3 <- ggplot(data = data, aes(x = management_decision))+
   geom_line(aes(y=prof_e_lo))+
   geom_line(aes(y=prof_e_hi))+
   geom_line(aes(y=prof_ave), color = "gray80")+
@@ -873,22 +907,22 @@ ggplot(data = data, aes(x = management_decision))+
   theme_minimal() +
   geom_point(aes(x=15.746, y=8.389), color="#841F27", alpha = 0.05, shape = 15, size = 3)+
   theme_minimal() +
-  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0), size = 3, color = "black")+
-  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0), size = 3, color = "gray80")+
+  geom_text(aes(x = 27.5,y = 18, label= "High Temp. Scenario (50%)", hjust = 0),family = "Source Sans Pro", size = 3, color = "black")+
+  geom_text(aes(x = 21,y = 5, label= "Low Temp. Scenario (50%)", hjust = 0),family = "Source Sans Pro", size = 3, color = "black")+
+  geom_text(aes(x = 18,y = 14, label= "Average Scenario", hjust = 0),family = "Source Sans Pro", size = 3, color = "gray80")+
   geom_segment(aes(x = 15.746, y = 0, xend = 15.746, yend = 19.095), color = "#841F27", linetype="dashed", alpha = 0.01)+
   geom_segment(aes(x = 0, y = 19.095, xend = 15.746, yend = 19.095), color = "#841F27", linetype="dashed", alpha = 0.01)+
   geom_segment(aes(x = 0, y = 8.389, xend = 15.746, yend = 8.389), color = "#841F27", linetype="dashed", alpha = 0.01)+
   
     
-    geom_text(aes(x = -0.4,y = 19.095, label= "19.1", hjust = 1), size = 3, color = "black")+
-  geom_text(aes(y = -0.6,x = 15.746, label= "15.8"), size = 3, color = "black")+
-  geom_text(aes(x = -0.4,y = 8.389, label= "8.4", hjust = 1), size = 3, color = "black")+
-    geom_text(aes(x = -0.4,y = 9.295, label= "9.3", hjust = 1), size = 3, color = "black")+
+    geom_text(aes(x = -0.4,y = 19.095, label= "19", hjust = 1), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 15.746, label= "X*"), size = 3, color = "black")+
+  geom_text(aes(x = -0.4,y = 8.389, label= "8", hjust = 1), size = 3, color = "black")+
+    geom_text(aes(x = -0.4,y = 9.295, label= "9", hjust = 1), size = 3, color = "black")+
   geom_text(aes(x = -0.4,y = 20, label= "20", hjust = 1), size = 3, color = "black")+
   
-  geom_text(aes(y = -0.6,x = 20, label= "20"), size = 3, color = "black")+
-  geom_text(aes(y = -0.6,x = 12, label= "12"), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 20, label= "X2"), size = 3, color = "black")+
+  geom_text(aes(y = -0.6,x = 12, label= "X1"), size = 3, color = "black")+
   
   geom_segment(aes(x = 12, y = 0, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
   geom_segment(aes(x = 0, y = 9.295, xend = 12, yend = 9.295), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
@@ -896,15 +930,15 @@ ggplot(data = data, aes(x = management_decision))+
   geom_segment(aes(x = 20, y = 0, xend = 20, yend = 20), color = "#66b2b2", linetype="dashed", alpha = 0.01)+
   labs(x = "Stocking Density (ind/m^3)",
        y = "Expected Profits ($)",
-       caption = "
-Expected Profit with Perfect Information = $9.3*(0.5) + $20*(0.5) = $14.65
-
-Expected Profit with Uncertain Information = $8.4*(0.5) + $19.1*(0.5) = $13.75
-
-Value of Information: $14.65 - $13.75 = $0.9",
 title = "Calculating the Value of Information")+
     theme(plot.caption.position = "plot",
-        plot.caption = element_text(hjust = 0))
+        plot.caption = element_text(hjust = 0))+
+   theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
 ```
 
+```{r}
+ggsave("basic_1.png", b1, dpi=1200, bg = "transparent")
+ggsave("basic_2.png", b2, dpi=1200, bg = "transparent")
+ggsave("basic_3.png", b3, dpi=1200, bg = "transparent")
+```
 

@@ -15,6 +15,11 @@ library(ggpubr)
 library(kableExtra)
 library(patchwork)
 
+
+#Font:
+library(sysfonts)
+font_add_google("Source Sans Pro")
+
 ```
 
 ```{r}
@@ -41,7 +46,7 @@ pom <- read_csv("data/POM_180_days.csv") %>%
 
 ```{r}
 #Using function for chlorophyll
-voi(data = chl, 
+voi_chl <- voi(data = chl, 
     management_choice = "density", 
     profits_E1 = "profits_chl_2", 
     profits_E2 = "profits_chl_7", 
@@ -49,12 +54,14 @@ voi(data = chl,
     profits_E4 = "profits_chl_15", 
     profits_E5 = "profits_chl_20", 
     p1 = 0.2, p2 = 0.2, p3 = 0.2, p4 = 0.2, p5 = 0.2)
+
+
 ```
 
 
 ```{r}
 #Using function for current speed
-voi(data = cs, 
+voi_cs <- voi(data = cs, 
     management_choice = "density", 
     profits_E1 = "profits_cs_0_05", 
     profits_E2 = "profits_cs_0_07", 
@@ -68,7 +75,7 @@ voi(data = cs,
 
 ```{r}
 #Using function for temperature
-voi(data = temp, 
+voi_temp <- voi(data = temp, 
     management_choice = "density", 
     profits_E1 = "profits_temp_4", 
     profits_E2 = "profits_temp_8", 
@@ -82,7 +89,7 @@ voi(data = temp,
 
 ```{r}
 #Using function for POM
-voi(data = pom, 
+voi_pom <- voi(data = pom, 
     management_choice = "density", 
     profits_E1 = "profits_pom_2", 
     profits_E2 = "profits_pom_5", 
@@ -93,4 +100,10 @@ voi(data = pom,
 
 ```
 
+```{r}
+ggsave("voi_chl.png", voi_chl, dpi=1200, bg = "transparent", width=7, height=5)
+ggsave("voi_cs.png", voi_cs, dpi=1200, bg = "transparent", width=7, height=5)
+ggsave("voi_temp.png", voi_temp, dpi=1200, bg = "transparent", width=7, height=5)
+ggsave("voi_pom.png", voi_pom, dpi=1200, bg = "transparent", width=7, height=5)
+```
 

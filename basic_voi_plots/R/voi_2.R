@@ -124,13 +124,13 @@ voi_2 = function(data,
     theme_minimal()+
     theme_minimal()+
     theme_minimal()+
-    geom_text(aes(x = 95,y = 105, label= paste("VoI: $",round(voi,0), sep = ""), hjust = 0), size = 4, color = "black")+
     labs(x = "Stocking Density (ind/m^3)",
          y = "Expected Profits ($)") + 
     xlim(0, 125)+
     ylim(0, 105)+
     theme(axis.title = element_text(size = 8)) +
-    theme(plot.title = element_text(size = 8))
+    theme(plot.title = element_text(size = 8))+
+    theme(legend.position = "none", text = element_text(family = "Source Sans Pro"), plot.title = element_text(face = "bold"))
   
   
   #Graph 2 
